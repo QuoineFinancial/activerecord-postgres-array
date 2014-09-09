@@ -1,5 +1,7 @@
 class String
   def to_postgres_array
+    prepend("'") unless start_with?("'")
+    concat("'") unless end_with?("'")
     self
   end
 
